@@ -16,7 +16,6 @@ export default function Home() {
       <OfferCards />
       <ScrollStory />
       <BigStatement />
-      <Capabilities />
       <CTA />
     </>
   )
