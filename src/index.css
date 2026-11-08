@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Segoe UI", Inter, system-ui, sans-serif;
+  color: #0f1b3d;
+  background: #fff;
+  overflow-x: hidden;
+}
+:focus-visible {
+  outline: 3px solid #3b6cff;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.reveal {
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.up {
+  transform: translateY(60px);
+}
+.reveal.left {
+  transform: translateX(-90px);
+}
+.reveal.right {
+  transform: translateX(90px);
+}
+.reveal.zoom {
+  transform: scale(0.8);
+}
+.reveal.show {
+  opacity: 1;
+  transform: none;
+}
+
+.gradient-text {
+  background: linear-gradient(
+    100deg,
+    #12a26b,
+    #14b8a6,
+    #3b6cff,
+    #7c4dff,
+    #12a26b
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: slide 6s linear infinite;
+}
+
+@keyframes slide {
+  to {
+    background-position: 300% 0;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(70px) rotate(5deg);
+  }
+}
+@keyframes floaty {
+  50% {
+    transform: translateY(-18px);
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+.rise {
+  display: inline-block;
+  animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+.page-fade {
+  animation: fadein 0.6s both;
+}
+.row-in {
+  animation: fadein 0.5s both;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-main {
+  color: #fff;
+  background: linear-gradient(120deg, #12a26b, #14b8a6);
+  box-shadow: 0 12px 30px -10px #12a26b;
+}
+.btn-main:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+.btn-line {
+  color: inherit;
+  border: 2px solid #ffffff55;
+}
+.btn-line:hover {
+  border-color: #14b8a6;
+}
+
+.card {
+  transition: all 0.4s;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px -30px #12a26b99;
+  border-color: #12a26b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
